@@ -1,0 +1,19 @@
+REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
+yourname/ubuntu-tmp-file   latest              03bf23afe5e0        14 seconds ago      113MB
+ubuntu                     16.04               c9d990395902        5 days ago          113MB
+hello-world                latest              e38bc07ac18e        6 days ago          1.85kB
+
+Docker image в отличие от Docker container никогда не стартуется ("runnning"):
+"State": {
+            "Status": "running",
+            "Running": true,
+            ...
+	 }
+
+Docker image - это некая "база", на основе которой стартуется Docker container.
+
+В Docker image не будет сетевых настроек в отличие, например, от Docker container:
+"NetworkSettings": {
+                   ...
+                   }
+
