@@ -1,5 +1,5 @@
-FROM alpine:edge
-RUN apk add --no-cache ruby-full ruby-dev alpine-sdk && gem install bundler --no-ri --no-rdoc
+FROM alpine:3.6
+RUN apk add --no-cache ruby-bundler ruby-libs ruby-nokogiri ruby-dev alpine-sdk && gem install bundler --no-ri --no-rdoc
 
 ENV APP_HOME /app
 RUN mkdir $"APP_HOME"
