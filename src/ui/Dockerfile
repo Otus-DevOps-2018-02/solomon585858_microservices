@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-RUN apt-get update -qq && apt-get install -y --no-install-recommends ruby-full ruby-dev build-essential && gem install bundler --no-ri --no-rdoc && apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM alpine:edge
+RUN apk add --no-cache ruby-full ruby-dev alpine-sdk && gem install bundler --no-ri --no-rdoc
 
 ENV APP_HOME /app
 RUN mkdir $"APP_HOME"
