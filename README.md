@@ -57,3 +57,38 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-14** с номером домашнего задания
  - [x] Выставил label **docker** с номером домашнего задания
+
+
+## ДЗ 15. Docker 3
+
+ - [x] Основное ДЗ
+ - [x] Задание со *
+
+#### В процессе сделано:
+ - Был установлен **linter** для работы с **docker** образами
+ - Были добавлены компоненты приложения (**post-py**, **comment**, **ui** в каталог **src** репозитория)
+ - Были созданы **Dockerfile**-ы для **post-py**, **comment**, **ui** и подкорректированы с учетом **linter**
+ - Были собраны образы для **post-py**, **comment**, **ui**
+ - Была создана bridge-сеть **reddit** и запущены контейнеры с алиасами, подключенные к этой сети
+ - Был пересобран образ для **ui** версии 2.0 для уменьшения занимаего места
+ - Был создан **volume** с названием **reddit_db** и подключен к mongodb
+ - В задании со * для контейнеры для сервисов были запущены с другими сетевыми алиасами и с указанием адресов для взаимодействия через ENV-переменные
+ - В задании со * был собран образ для **ui** на базе **Alpine Linux**
+
+#### Как запустить проект:
+ - Для проверки **linter**-ом **Dockerfile**-а использовать команду **hadolint Dockerfile**
+ - Для создания сети для приложения использовать команду **docker network create reddit**
+ - Для создания контейнеров с сервисами использовать команды **docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db mongo:latest**, **docker run -d --network=reddit --network-alias=post solomon5858558/post:1.0**, **docker run -d --network=reddit --network-alias=comment solomon5858558/comment:1.0**, **docker run -d --network=reddit -p 9292:9292 solomon5858558/ui:1.0**
+ - Для создания **volume** использовать команду **docker volume create reddit_db**
+ - Для создания контейнеров с сервисами при покдлюченном **volume** использовать команды **docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest**, **docker run -d --network=reddit --network-alias=post solomon5858558/post:1.0**, **docker run -d --network=reddit --network-alias=comment solomon5858558/comment:1.0**, **docker run -d --network=reddit -p 9292:9292 solomon5858558/ui:2.0**
+ - В задании со * для содания контейнеров с другими сетевыми алиасами и с указанием адресов для взаимодействия через ENV-переменные использовать команды **docker run -d --network=reddit --network-alias=post_db_new --network-alias=comment_db_new mongo:latest**, **docker run -d -e "POST_DATABASE_HOST=post_db_new" --network=reddit --network-alias=post_new solomon5858558/post:1.0**, **docker run -d -e "COMMENT_DATABASE_HOST=comment_db_new" --network=reddit --network-alias=comment_new solomon5858558/comment:1.0**, **docker run -d -e "POST_SERVICE_HOST=post_new" -e "COMMENT_SERVICE_HOST=comment_new" --network=reddit -p 9292:9292 solomon5858558/ui:1.0**
+ - В задании со * для создания образа на базе **Alpine Linux** для **ui** использовать команду **docker build -t solomon5858558/ui:3.0 ./ui**
+ - Для просмотра созданных образов использовать команду **docker images** (в итоге для **ui** 1.0 - 766 MB, 2.0 - 399 MB, 3.0 - 238 MB)
+
+#### Как проверить работоспособность:
+ - Приложение должно быть доступно по адресу **http://IPaddrofapplication:9292**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-15** с номером домашнего задания
+ - [x] Выставил label **docker** с номером домашнего задания
+
