@@ -2,7 +2,7 @@ FROM alpine:3.6
 RUN apk add --no-cache ruby-bundler ruby-dev alpine-sdk && gem install bundler --no-ri --no-rdoc
 
 ENV APP_HOME /app
-RUN mkdir $"APP_HOME"
+RUN mkdir $APP_HOME
 
 WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
