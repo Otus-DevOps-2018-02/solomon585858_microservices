@@ -93,7 +93,7 @@ solomon585858 microservices repository
  - [x] Выставил label **docker** с номером домашнего задания
 
 
- ## ДЗ 16. Docker 4
+## ДЗ 16. Docker 4
 
  - [x] Основное ДЗ
  - [x] Задание со *
@@ -123,4 +123,33 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-16** с номером домашнего задания
  - [x] Выставил label **docker** с номером домашнего задания
+
+
+ ## ДЗ 17. GitlabCI 1
+
+ - [x] Основное ДЗ
+ - [x] Задание со *
+
+#### В процессе сделано:
+ - Была создана виртуальная машина для **Gitlab CI**
+ - Был установлен **Gitlab CI** с помощью **Omnibus**
+ - Были созданы **Group**, **Project**, **CI/CD Pipeline**
+ - Был зарегистрирован и запущен **Runner**
+ - Был добавлен файл **.gitlab-ci.yml**
+ - Был добавлен исходный код **reddit** в репозиторий
+ - Было протестировано приложение **reddit**
+ - Была настроена интеграция **Gitlab CI** со **Slack-ом**
+
+#### Как запустить проект:
+ - Для установки **docker** необходимо выполнить команды **curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -**, **add-apt-repository "deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"**, **apt-get update && apt-get install docker-ce docker-compose**
+ - Для подготовки окружения необходимо выполнить команды **mkdir -p /srv/gitlab/config /srv/gitlab/data /srv/gitlab/logs**, **cd /srv/gitlab/**, **touch docker-compose.yml**
+ - Для запуска Gitlab CI необходимо выполнить команду **docker-compose up -d**
+
+#### Как проверить работоспособность:
+ - Gitlab CI должен быть доступен по адресу **http://35.234.103.154/**
+ - При каждом изменении в коде приложения должен быть запущен тест и информация должна быть отражена в Slack-чате
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-17** с номером домашнего задания
+ - [x] Выставил label **GitlabCI** с номером домашнего задания
 
