@@ -5,4 +5,4 @@ prometheus/
 *.pyc
 
 # env
-.env
+*.env
