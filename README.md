@@ -179,3 +179,28 @@ solomon585858 microservices repository
  - [x] Выставил label **GitlabCI** с номером домашнего задания
 
 
+ ## ДЗ 19. Monitoring 1
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Было создано окружение для развертывания **Prometheus**
+ - Была создана директория **docker** в корне репозитория и перенесены в нее директория **docker-monolith** и файлы **docker-compose** и все **env**
+ - Была создана директория **monitoring**, в которой будут хранится все файлы, касающиеся мониторинга
+ - Были собраны **Docker** образы и запушены в **Docker Hub**: **solomon5858558/ui** (*https://hub.docker.com/r/solomon5858558/ui/*), **solomon5858558/comment** (*https://hub.docker.com/r/solomon5858558/comment/*), **solomon5858558/post** (*https://hub.docker.com/r/solomon5858558/post/*), **solomon5858558/prometheus** (*https://hub.docker.com/r/solomon5858558/prometheus/*)
+ - Был развернут **Prometheus** совместно с микросервисами в **Docker** контейнере с помощью **docker-compose.yml**
+ - Были просмотрены **targets**, **endpoints**, **healthchecks**, **metrics**, **graphs** в GUI
+ - Была протестирована остановка **post**, **comment** сервисов
+ - Была протестирована сборка метрик хоста с помощью **Node exporter**
+
+#### Как запустить проект:
+ - Для сбора **Docker** для **Prometheus** нужно выполнить команду **docker build -t $USER_NAME/prometheus .**
+ - Для развертывания **Prometheus** совместно с микросервисами в **Docker** контейнере нужно выполнить команду **docker-compose up -d**
+
+#### Как проверить работоспособность:
+ - **Prometheus** должен быть доступен по адресу **http://IPAddressOFPrometheus:9292/graph**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-19** с номером домашнего задания
+ - [x] Выставил label **Monitoring** с номером домашнего задания
