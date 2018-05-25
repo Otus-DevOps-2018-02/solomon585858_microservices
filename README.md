@@ -204,3 +204,31 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-19** с номером домашнего задания
  - [x] Выставил label **Monitoring** с номером домашнего задания
+
+
+ ## ДЗ 20. Monitoring 2
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Были развернуты микросервисы и **Prometheus**, **cAdvisor**, **Grafana**, **Alertmanager** в **Docker** контейнерах
+ - Были собраны **Docker** образы и запушены в **Docker Hub**: **solomon5858558/ui** (*https://hub.docker.com/r/solomon5858558/ui/*), **solomon5858558/comment** (*https://hub.docker.com/r/solomon5858558/comment/*), **solomon5858558/post** (*https://hub.docker.com/r/solomon5858558/post/*), **solomon5858558/prometheus** (*https://hub.docker.com/r/solomon5858558/prometheus/*), **solomon5858558/alertmanager** (*https://hub.docker.com/r/solomon5858558/alertmanager/*)
+ - Файл **docker-compose.yml** был разбит на два файла - **docker-compose.yml** и **docker-compose-monitoring.yml**
+ - Был равзернут **cAdvisor** для мониторинга состояния контейнеров
+ - Была развернута **Grafana** и добавлены **Dashboards**, метрики мониторинга приложения и бизнес-метрики
+ - Был развернут **Alertmanager** и протестированы алерты в **Slack**
+
+#### Как запустить проект:
+ - Для развертывания **Prometheus**, **cAdvisor**, **Grafana**, **Alertmanager** в **Docker** контейнерах нужно выполнить команду **docker-compose -f docker-compose-monitoring.yml up -d**
+ - Для развертывания микросервисов в **Docker** контейнерах нужно выполнить команду **docker-compose up -d**
+
+#### Как проверить работоспособность:
+ - **Prometheus** должен быть доступен по адресу **http://IPAddressOFPrometheus:9292/graph**
+ - **cAdvisor** должен быть доступен по адресу **http://IPAddressOFcAdvisor:8080/containers**
+ - **Grafana** должен быть доступен по адресу **http://IPAddressOFGrafana:3000**
+ - **Alertmanager** должен быть доступен по адресу **http://IPAddressOFAlertmanager:9093**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-20** с номером домашнего задания
+ - [x] Выставил label **Monitoring** с номером домашнего задания
