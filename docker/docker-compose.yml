@@ -11,12 +11,22 @@ services:
           - comment_db
   ui:
     image: ${USER_NAME}/ui:${UI_VERSION}
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
     ports:
       - ${EXT_PORT}:${INT_PORT}/tcp
     networks:
       - front_net
   post:
     image: ${USER_NAME}/post:${POST_VERSION}
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
     networks:
       back_net:
         aliases:
