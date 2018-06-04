@@ -16,12 +16,21 @@ services:
       options:
         fluentd-address: localhost:24224
         tag: service.ui
+    depends_on:
+      - post
     ports:
       - ${EXT_PORT}:${INT_PORT}/tcp
     networks:
       - front_net
   post:
     image: ${USER_NAME}/post:${POST_VERSION}
+    environment:
+      - POST_DATABASE_HOST=post_db
+      - POST_DATABASE=posts
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
     logging:
       driver: "fluentd"
       options:
