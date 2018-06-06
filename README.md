@@ -255,3 +255,28 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-21** с номером домашнего задания
  - [x] Выставил label **Logging** с номером домашнего задания
+
+ ## ДЗ 22. Kubernetes 1
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Был развернут **Kubernetes-кластер** и все его компоненты **The Hard Way** на базе руководства от *Kelsey Hightower-а*
+ - Были развернуты тестовые **Pods** на базе созданных **deployment-ов**
+ - Был удален тестовый **Kubernetes-кластер** после выполнения всех тестов
+
+#### Как запустить проект:
+ - Для развертывания **mongo** на базе **deployment** файла использовать команду **kubectl apply -f mongo-deployment.yml**
+ - Для развертывания **comment** на базе **deployment** файла использовать команду **kubectl apply -f comment-deployment.yml**
+ - Для развертывания **post** на базе **deployment** файла использовать команду **kubectl apply -f post-deployment.yml**
+ - Для развертывания **ui** на базе **deployment** файла использовать команду **kubectl apply -f ui-deployment.yml**
+
+#### Как проверить работоспособность:
+ - Список созданных **Pods** можно посмотреть с помощью команды **kubectl get pods -o wide**
+ - Список созданных **Deployments** можно посмотреть с помощью команды **kubectl get deployments -o wide**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-22** с номером домашнего задания
+ - [x] Выставил label **Kubernetes** с номером домашнего задания
+
