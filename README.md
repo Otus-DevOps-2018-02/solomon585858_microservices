@@ -256,6 +256,7 @@ solomon585858 microservices repository
  - [x] Выставил label **Homework-21** с номером домашнего задания
  - [x] Выставил label **Logging** с номером домашнего задания
 
+
  ## ДЗ 22. Kubernetes 1
 
  - [x] Основное ДЗ
@@ -279,4 +280,34 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-22** с номером домашнего задания
  - [x] Выставил label **Kubernetes** с номером домашнего задания
+
+
+  ## ДЗ 23. Kubernetes 2
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Было развернуто локальное окружение для работы с **Kubernetes**
+ - Был развернут **Kubernetes** в **GKE**
+ - Был запущен сервис **reddit** в **Kubernetes**
+
+#### Как запустить проект:
+ - Для запуска **Minikube** кластера использовать команду **minikube start**
+ - Для подключения к **Kubernetes** в **GKE** использовать команду **gcloud container clusters get-credentials cluster-1 --zone us-west1-b --project docker-201804**
+ - Для создания **dev namespace** использовать команду **kubectl apply -f ./kubernetes/reddit/dev-namespace.yml**
+ - Для запуска сервиса **reddit** в **dev namespace** использовать команду **kubectl apply -f ./kubernetes/reddit/ -n dev**
+ - Для назначения роли **cluster-admin** для **Service Account** с именем **kube-system:kubernetes-dashboard** использовать команду **kubectl create clusterrolebinding kubernetes-dashboard  --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard**
+ - Для подключение к **Kubernetes Dashboard** использовать команды **kubectl proxy** и **http://localhost:8001/ui**
+
+#### Как проверить работоспособность:
+ - Список созданных **Pods** можно посмотреть с помощью команды **kubectl get pods -o wide -n dev**
+ - Список созданных **Deployments** можно посмотреть с помощью команды **kubectl get deployments -o wide -n dev**
+ - Веб-интерфейс приложения **reddit** должен быть доступен по ссылке **http://<node-ip>:<NodePort>**. В нашем случае это **http://35.203.176.191:32092/**. Скриншот выложен в виде файла **kubernetes/reddit/UI_SCREENSHOT.png**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-23** с номером домашнего задания
+ - [x] Выставил label **Kubernetes** с номером домашнего задания
+
+
 
