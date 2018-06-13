@@ -303,7 +303,7 @@ solomon585858 microservices repository
 #### Как проверить работоспособность:
  - Список созданных **Pods** можно посмотреть с помощью команды **kubectl get pods -o wide -n dev**
  - Список созданных **Deployments** можно посмотреть с помощью команды **kubectl get deployments -o wide -n dev**
- - Веб-интерфейс приложения **reddit** должен быть доступен по ссылке **http://<node-ip>:<NodePort>**. В нашем случае это **http://35.203.176.191:32092/**. Скриншот выложен в виде файла **kubernetes/reddit/UI_SCREENSHOT.png**
+ - Веб-интерфейс приложения **reddit** должен быть доступен по ссылке **http://node-ip:NodePort**. В нашем случае это **http://35.203.176.191:32092/**. Скриншот выложен в виде файла **kubernetes/reddit/UI_SCREENSHOT.png**
  
 #### PR checklist
  - [x] Выставил label **Homework-23** с номером домашнего задания
