@@ -1,6 +1,6 @@
 FROM python:3.6.0-alpine
 
-RUN pip install --upgrade pip
+RUN apk update && apk add gcc musl-dev && pip install --upgrade pip
 
 WORKDIR /app
 COPY . /app
