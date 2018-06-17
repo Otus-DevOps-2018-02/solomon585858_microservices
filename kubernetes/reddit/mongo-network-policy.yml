@@ -17,9 +17,8 @@ spec:
     - podSelector:
         matchLabels:
           app: reddit
-        matchExpressions:
-        - key: component
-          operator: In
-          values:
-          - comment
-          - post
+          component: comment
+    - podSelector:
+        matchLabels:
+          app: reddit
+          component: post
