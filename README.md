@@ -336,3 +336,33 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-24** с номером домашнего задания
  - [x] Выставил label **Kubernetes** с номером домашнего задания
+
+
+ ## ДЗ 25. Kubernetes 4
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Были установлены **Helm**, **Tiller**
+ - Был развернут **Gitlab** в **Kubernetes**
+ - Был протестирован запуск **CI/CD** конвейера 
+
+#### Как запустить проект:
+ - Для создания и запуска **Tiller** сервера использовать команды **kubectl apply -f tiller.yml** и **helm init --service-account tiller** 
+ - Для обновления зависимости чарта **reddit** использовать команду **helm dep update ./reddit**
+ - Для установки приложения использовать команду **helm install reddit --name reddit-test**
+ - Для обновления релиза, установленного в k8s, использовать команду **helm upgrade reddit-test ./reddit** 
+ - Добавить пул узлов **bigpool** в **GKE**
+ - Включить **Устаревшие права доступа** в **GKE**
+ - Для установки **Gitlab** выполнить команду **helm install --name gitlab . -f values.yaml**
+ - Добавить группу **solomon5858558** и проекты **ui, post, comment, reddit-deploy**
+ - Добавить 2 переменные **CI_REGISTRY_USER** (логин в **Docker Hub**), **CI_REGISTRY_PASSWORD** (пароль от **Docker Hub**) в **Gitlab**
+ - Запушить код приложения в каждую ветку
+
+#### Как проверить работоспособность:
+ - Приложения должны быть доступны по ссылкам **http://staging**, **http://production**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-25** с номером домашнего задания
+ - [x] Выставил label **Kubernetes** с номером домашнего задания
