@@ -1,0 +1,13 @@
+---
+service:
+  internalPort: 9292
+  externalPort: 9292
+
+image:
+  repository: solomon5858558/ui
+  tag: 1.0
+
+postHost:
+postPort:
+commentHost:
+commentPort:
