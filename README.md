@@ -366,3 +366,30 @@ solomon585858 microservices repository
 #### PR checklist
  - [x] Выставил label **Homework-25** с номером домашнего задания
  - [x] Выставил label **Kubernetes** с номером домашнего задания
+
+
+ ## ДЗ 26. Kubernetes 5
+
+ - [x] Основное ДЗ
+ - [ ] Задание со *
+
+#### В процессе сделано:
+ - Был развенут *Prometheus* в *k8s*
+ - Были настроены *Prometheus* и *Grafana* для сбора метрик
+ - Был развернут и настроен *EFK* для сбора логов
+
+#### Как запустить проект:
+ - Загрузим *Prometheus* локально в *Charts* каталог **cd kubernetes/charts && ~/helm fetch stable/prometheus --untar**
+ - Запустим *Prometheus* в *k8s* из *charts/prometheus* **helm upgrade prom . -f custom_values.yml --install**
+ - Запустим приложение из *helm* чарта *reddit* **helm upgrade reddit-test ./reddit --install**, **helm upgrade production --namespace production ./reddit --install**, **helm upgrade staging --namespace staging ./reddit --install**
+ - Поставим *grafana* с помощью *helm* **helm upgrade --install grafana stable/grafana --set "server.adminPassword=admin" --set "server.service.type=NodePort" --set "server.ingress.enabled=true" --set "server.ingress.hosts={reddit-grafana}"**
+ - Добавим *label* самой мощной *NODE*-е в кластере **kubectl label node gke-cluster-1-bigpool-e94a59ec-tl14 elastichost=true**
+ - Запустим стек *efk* **kubectl apply -f ./efk**
+ - Установим *kibana* **helm upgrade --install kibana stable/kibana --set "ingress.enabled=true" --set "ingress.hosts={reddit-kibana}" --set "env.ELASTICSEARCH_URL=http://elasticsearch-logging:9200" --version 0.1.1**
+
+#### Как проверить работоспособность:
+ - Приложения должны быть доступны по ссылкам **http://reddit-prometheus**, **http://reddit-grafana**, **http://reddit-kibana**
+
+#### PR checklist
+ - [x] Выставил label **Homework-26** с номером домашнего задания
+ - [x] Выставил label **Kubernetes** с номером домашнего задания
