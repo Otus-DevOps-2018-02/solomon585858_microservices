@@ -282,7 +282,7 @@ solomon585858 microservices repository
  - [x] Выставил label **Kubernetes** с номером домашнего задания
 
 
-  ## ДЗ 23. Kubernetes 2
+ ## ДЗ 23. Kubernetes 2
 
  - [x] Основное ДЗ
  - [ ] Задание со *
@@ -310,4 +310,29 @@ solomon585858 microservices repository
  - [x] Выставил label **Kubernetes** с номером домашнего задания
 
 
+ ## ДЗ 24. Kubernetes 3
 
+ - [x] Основное ДЗ
+ - [x] Задание со *
+
+#### В процессе сделано:
+ - Была протестирована работа с **Ingress Controller**, **Ingress**, **Secret**, **TLS**, **LoadBalancer Service**, **Network Policies**, **PersistentVolumes**, **PersistentVolumeClaims**
+ - В задании со * объект **Secret** был описан с помощью **Kubernetes** манифеста (файл **ui-secret.yml**). В рамках **ui-secret.yml** были добавлены **tls.key** и **tls.crt** в **base64** т.к. **Kubernetes** хранит эти файлы в **base64**
+
+#### Как запустить проект:
+ - Для создания **Secret** в **Namespace** с именем **dev** использовать команду **kubectl apply -f ui-secret.yml** (задание со *)
+ - Для включения **Network Policy** для **GKE** использовать команды **gcloud beta container clusters update cluster-1 --zone=us-west1-b --update-addons=NetworkPolicy=ENABLED**, **gcloud beta container clusters update cluster-1 --zone=us-west1-b --enable-network-policy**
+ - Для применения **Network Policy**, запрещающую входящий трафик для **mongodb** от всех **Pod**-ов кроме **comment** и **post** использовать команду **kubectl apply -f mongo-network-policy.yml -n dev**
+ - Для создания диска в **Google Cloud** использовать команду **gcloud compute disks create --size=25GB --zone=us-west1-b reddit-mongo-disk**
+ - Для монтирования выделенного диска к **Pod** с именем **mongo** использовать команду **kubectl apply -f mongo-deployment.yml -n dev**
+ - Для добавления **PersistentVolume** в кластер использовать команду **kubectl apply -f mongo-volume.yml -n dev**
+ - Для добавления **PersistentVolumeClaim** в кластер использовать команду **kubectl apply -f mongo-claim.yml -n dev**
+ - Для добавления **StorageClass** в кластер использовать команду **kubectl apply -f storage-fast.yml -n dev**
+ - Для добавления **PersistentVolumeClaim** в кластер использовать команду **kubectl apply -f mongo-claim-dynamic.yml -n dev**
+
+#### Как проверить работоспособность:
+ - Веб-интерфейс приложения **reddit** должен быть доступен по ссылке **https://35.186.253.127/**
+ 
+#### PR checklist
+ - [x] Выставил label **Homework-24** с номером домашнего задания
+ - [x] Выставил label **Kubernetes** с номером домашнего задания
